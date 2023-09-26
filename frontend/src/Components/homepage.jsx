@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import videoBg from '../Assets/abs.mp4'
 
 function Homepage() {
   return (
@@ -6,23 +7,25 @@ function Homepage() {
       <div className="container-fluid">
         <div className="row home-page-title-color py-5">
           <div className="col-5 offset-2">
-            <div className="display-5 my-2">Submit a complaint</div>
-            <p class="fs-5 mt-3">
-              Welcome to the Pink, a  platform for complaint lodging and  management for department of Computer Science and Engineering, University of Dhaka.
-              Anyone affiliated with the department can
-              lodge complaints. The complaints are sent to reviewers,
-              who then review the complaints and take necessary actions to resolve the issue. 
-            </p>
+              <div className="display-5 my-2">Submit a complaint</div>
+              <p class="fs-5 mt-3">
+                Welcome to the Pink, a  platform for complaint lodging and  management for department of Computer Science and Engineering, University of Dhaka.
+                Anyone affiliated with the department can
+                lodge complaints. The complaints are sent to reviewers,
+                who then review the complaints and take necessary actions to resolve the issue. 
+               
+              </p>
           </div>
           <div className="col-2">
-            <img
+            {/* <img
               src={require("../Assets/homepage-title-photo.png")}
               class="mt-4"
               style={{
                 width: "450px",
                 maxHeight: "450px",
               }}
-            ></img>
+            ></img> */}
+            {/* <video src = {videoBg} autoPlay loop muted/> */}
           </div>
         </div>
       </div>
