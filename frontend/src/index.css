@@ -13,7 +13,9 @@ code {
 }
 
 .primary-color {
-  background-color: hsl(330, 93%, 36%);
+  background-color: hsl(330, 83%, 27%);
+  background-image: url(/src/Assets/darkpinky.jpg);
+  
 }
 
 ul {
@@ -50,7 +52,8 @@ li:hover {
 }
 
 .primary-background-color {
-  background-color: #000000;
+  background-color: #340e21;
+  /* background-image: url(/src/Assets/darkpinky.jpg); */
 }
 
 .background-color {
@@ -63,7 +66,7 @@ input[type="file"] {
   top: 15px;
   left: 20px;
   font-size: 17px;
-  color: #b8b8b8;
+  color: #eee1e1;
 }
 .button-wrap {
   position: relative;
@@ -87,8 +90,29 @@ input[type="file"] {
 }
 
 .home-page-title-color {
-  background-color: #000000;
+  background-color: #ddbad6;
+  background-image: url(/src/Assets/bgf.png);
+  background-size:43cm;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* margin: 0;
+  padding: 0;
+  height: fit-content;
+  width: fit-content; */
 }
+/* .col-5 offset-2 {
+  margin: 0;
+  padding: 0;
+  height:auto;
+  width:auto;
+}
+.display-5 my-2 { 
+  position: absolute;
+  width:auto;
+  height:auto;
+
+} */
 
 .navbar-button-color {
   color: white;

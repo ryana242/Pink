@@ -16,9 +16,9 @@ function Footer() {
             <img
               src={require("../Assets/footer-logo.png")}
               style={{
-                width: "300px",
+                width: "50px",
                 marginTop: "0px",
-                marginLeft: "-10px",
+                marginLeft: "10px",
                 maxHeight: "50px",
               }}
             ></img>
