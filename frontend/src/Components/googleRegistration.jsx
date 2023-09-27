@@ -23,7 +23,7 @@ function GoogleRegistration(props) {
     { label: "Faculty", value: 1, isDisabled: true },
     { label: "Student", value: 2, isDisabled: true },
     {
-      label: "RA / TA / Lab Instructor",
+      label: "Lab Instructor",
       value: 3,
       isDisabled: true,
     },
@@ -38,7 +38,7 @@ function GoogleRegistration(props) {
       }
       console.log(location.state);
 
-      if (location.state.email.includes("northsouth.edu")) {
+      /*if (location.state.email.includes("du.ac.bd")) {
         setIsNsuSignUp(true);
         setFullName(location.state.givenName);
         setNsuId(location.state.familyName);
@@ -48,7 +48,7 @@ function GoogleRegistration(props) {
           { label: "Faculty", value: 1, isDisabled: false },
           { label: "Student", value: 2, isDisabled: false },
           {
-            label: "RA / TA / Lab Instructor",
+            label: "Lab Instructor",
             value: 3,
             isDisabled: false,
           },
@@ -65,14 +65,29 @@ function GoogleRegistration(props) {
           { label: "Faculty", value: 1, isDisabled: true },
           { label: "Student", value: 2, isDisabled: true },
           {
-            label: "RA / TA / Lab Instructor",
+            label: "Lab Instructor",
             value: 3,
             isDisabled: true,
           },
           { label: "Helper", value: 4, isDisabled: false },
           { label: "Admin", value: 5, isDisabled: true },
         ]);
-      }
+      }*/
+      setFullName(location.state.name);
+      setNsuId("");
+      setEmail(location.state.email);
+      setDesignations([
+        { label: "Faculty", value: 1, isDisabled: false },
+        { label: "Student", value: 2, isDisabled: false },
+        {
+          label: "Lab Instructor",
+          value: 3,
+          isDisabled: false,
+        },
+        { label: "Helper", value: 4, isDisabled: false },
+        { label: "Admin", value: 5, isDisabled: false },
+      ]);
+
     }
     fetchData();
   }, []);
@@ -80,10 +95,6 @@ function GoogleRegistration(props) {
   async function handleSubmit(e) {
     e.preventDefault(); //stops the page from reloading
 
-    if (nsuId.length != 10) {
-      setNsuIdErrorClass("block");
-      return;
-    }
     if (designation.length === 0) {
       setDesignationErrorClass("block");
       return;
@@ -95,7 +106,7 @@ function GoogleRegistration(props) {
     const formData = new FormData();
     console.log(location.state.googleID);
     formData.append("fullName", fullName);
-    formData.append("nsuId", nsuId);
+    formData.append("Registration No.", nsuId);
     formData.append("email", email);
     formData.append("googleID", location.state.googleID);
     formData.append("userType", designation);
@@ -171,10 +182,10 @@ function GoogleRegistration(props) {
                 type="text"
                 class="form-control"
                 id="nsuIdInput"
-                placeholder="NSU ID"
+                placeholder="Registration No."
               ></input>
               <span class={"text-danger d-" + nsuIdErrorClass}>
-                Enter a valid NSU ID
+                Enter a valid DU ID
               </span>
             </div>
             <div class="form-group mb-4">
@@ -235,7 +246,7 @@ function GoogleRegistration(props) {
                 <p class="d-none">Select a file to show details</p>
               )}
               <span class={"mb-2 text-danger d-" + idPhotoErrorClass}>
-                Please attach your NSU ID card photo
+                Please attach your DU ID card photo
               </span>
             </div>
             <div className="d-block">
