@@ -29,7 +29,7 @@ function Register() {
     { label: "Faculty", value: 1, isDisabled: true },
     { label: "Student", value: 2, isDisabled: true },
     {
-      label: "RA / TA / Lab Instructor",
+      label: "Lab Instructor",
       value: 3,
       isDisabled: true,
     },
@@ -226,7 +226,7 @@ function Register() {
                 placeholder="Registration number"
               ></input>
               <span class={"text-danger d-" + nsuIdErrorClass}>
-                Enter a valid NSU ID
+                Enter a valid Registration Number
               </span>
             </div>
             <div class="form-group mb-4">
@@ -238,16 +238,16 @@ function Register() {
                   setEmailErrorClass("none");
                   setDesignation("");
                 }}
-                onBlur={(e) => {
+                /*onBlur={(e) => {
                   if (
-                    email.length > 13 &&
-                    email.substring(email.length - 14) === "northsouth.edu"
+                    //email.length > 13 &&
+                    //email.substring(email.length - 14) === "du.ac.bd"
                   ) {
                     setDesignations([
                       { label: "Faculty", value: 1, isDisabled: false },
                       { label: "Student", value: 2, isDisabled: false },
                       {
-                        label: "RA / TA / Lab Instructor",
+                        label: "Lab Instructor",
                         value: 3,
                         isDisabled: false,
                       },
@@ -259,7 +259,7 @@ function Register() {
                       { label: "Faculty", value: 1, isDisabled: true },
                       { label: "Student", value: 2, isDisabled: true },
                       {
-                        label: "RA / TA / Lab Instructor",
+                        label: "Lab Instructor",
                         value: 3,
                         isDisabled: true,
                       },
@@ -267,7 +267,22 @@ function Register() {
                       { label: "Admin", value: 5, isDisabled: true },
                     ]);
                   }
-                }}
+                }}*/
+                onBlur={(e) => {
+                  if (validateEmail(email)) {
+                    setDesignations([
+                      { label: "Faculty", value: 1, isDisabled: false },
+                      { label: "Student", value: 2, isDisabled: false },
+                      {
+                        label: "Lab Instructor",
+                        value: 3,
+                        isDisabled: false,
+                      },
+                      { label: "Helper", value: 4, isDisabled: false },
+                      { label: "Admin", value: 5, isDisabled: false },
+                    ]);
+                  }
+                }} 
                 type="text"
                 class="form-control"
                 id="emailInput"
@@ -360,7 +375,7 @@ function Register() {
                 <p class="d-none">Select a file to show details</p>
               )}
               <span class={"mb-2 text-danger d-" + idPhotoErrorClass}>
-                Please attach your NSU ID card photo
+                Please attach your DU ID card photo
               </span>
             </div>
             <div className="d-block">
@@ -409,12 +424,7 @@ function Register() {
                     aria-label="Close"
                   ></button>
                 </div>
-                <div class="modal-body">{ref == "http://localhost:3000/admin-homepage" ? "You may login now.": "Please verify your email."}</div>
-                <div class="modal-footer">
-                  <a className="btn btn-primary" href="/login">
-                    Ok
-                  </a>
-                </div>
+                
               </div>
             </div>
           </div>
