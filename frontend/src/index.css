@@ -52,8 +52,13 @@ li:hover {
 }
 
 .primary-background-color {
-  background-color: #340e21;
-  /* background-image: url(/src/Assets/darkpinky.jpg); */
+  background-color: #f09ead;
+  /* background-image: url(/src/Assets/bgf.png); */
+  /* width: 450px;
+  height: 750px;
+  background-repeat: no-repeat; */
+
+  
 }
 
 .background-color {
@@ -73,7 +78,7 @@ input[type="file"] {
 }
 .button-attach {
   display: inline-block;
-  background-color: #ee1d93;
+  background-color: #b32073;
   border-radius: 10px;
   border: 4px double #cccccc;
   color: #ffffff;
@@ -124,6 +129,7 @@ input[type="file"] {
   background-color: #000000;
   border-color: #000000;
 }
+
 
 .card-shadow {
   box-shadow: 0 8px 16px 0 rgb(255, 255, 255), 0 12px 20px 0 rgb(255, 255, 255);
