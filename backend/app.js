@@ -50,7 +50,7 @@ connection.query(
               recursive: true
             });
           }
-          const dir2 = './uploads/NSU IDs';
+          const dir2 = './uploads/DU IDs';
           if (!fs.existsSync(dir2)) {
             fs.mkdirSync(dir2, {
               recursive: true

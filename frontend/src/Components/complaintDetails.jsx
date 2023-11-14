@@ -13,7 +13,7 @@ function ComplaintDetails() {
   const [complainDescription, setComplainDescription] = useState("");
   const [complainAgainst, setComplainAgainst] = useState([]);
   const [lodgerName, setLodgerName] = useState("");
-  const [lodgerNsuId, setLodgerNsuId] = useState("");
+  const [lodgerDuId, setLodgerDuId] = useState("");
   const [lodgerEmail, setLodgerEmail] = useState("");
   const [lodgerUserUNID, setLodgerUserUNID] = useState("");
   const [lodgerDesignation, setLodgerDesignation] = useState("");
@@ -64,7 +64,7 @@ function ComplaintDetails() {
         }))
       );
       setLodgerName(response.data.data.User.fullName);
-      setLodgerNsuId(response.data.data.User.nsuId);
+      setLodgerDuId(response.data.data.User.duId);
       setLodgerEmail(response.data.data.User.email);
       setLodgerDesignation(response.data.data.User.userType);
       setLodgerUserUNID(response.data.data.ComplainerUNID);
@@ -320,7 +320,7 @@ function ComplaintDetails() {
                 ></img>
               </div>
               <h6 class="mt-3">Name: {lodgerName}</h6>
-              <h6 class="mt-3">NSU ID: {lodgerNsuId}</h6>
+              <h6 class="mt-3">DU ID: {lodgerDuId}</h6>
               <h6 class="mt-3">Email: {lodgerEmail}</h6>
               <h6 class="mt-3">Designation: {lodgerDesignation}</h6>
             </div>

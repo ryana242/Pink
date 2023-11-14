@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     fullName: DataTypes.STRING,
-    nsuId: DataTypes.STRING,
+    duId: DataTypes.STRING,
     email: DataTypes.STRING(320),
     password: DataTypes.STRING,
     uniqueDetail: DataTypes.STRING,
@@ -22,10 +22,10 @@ module.exports = (sequelize, DataTypes) => {
     accountType: {
       type: DataTypes.ENUM("Google", "Default"),
     },
-    nsuIdPhoto: DataTypes.STRING,
+    duIdPhoto: DataTypes.STRING,
     isVerified: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false,
+      defaultValue: true,
     },
     active: {
       type: DataTypes.BOOLEAN,

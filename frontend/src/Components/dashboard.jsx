@@ -9,7 +9,7 @@ function Dashboard() {
   const token = localStorage.getItem("userUNID");
 
   const [name, setName] = useState("");
-  const [nsuId, setNsuId] = useState("");
+  const [duId, setDuId] = useState("");
   const [email, setEmail] = useState("");
   const [designation, setDesignation] = useState("");
   const [complainList, setComplainList] = useState([]);
@@ -44,7 +44,7 @@ function Dashboard() {
       let openComplain = [];
       let closeComplain = [];
       setName(response.data.data.fullName);
-      setNsuId(response.data.data.nsuId);
+      setDuId(response.data.data.duId);
       setEmail(response.data.data.email);
       setDesignation(response.data.data.userType);
       setComplainList(response.data.data.Complains);
@@ -102,7 +102,7 @@ function Dashboard() {
                 ></img>
               </div>
               <h5 class="mt-3">Name: {name}</h5>
-              <h5 class="mt-3">NSU ID: {nsuId}</h5>
+              <h5 class="mt-3">DU Registration Number: {duId}</h5>
               <h5 class="mt-3">Email: {email}</h5>
               <h5 class="mt-3">Designation: {designation}</h5>
               <div className="d-block mt-4">
@@ -120,7 +120,7 @@ function Dashboard() {
                 class={"btn btn-lg " + myComplainsSelectedClass}
                 onClick={myComplainsButtonClicked}
               >
-                My Complain(s)
+                My Complaint(s)
               </button>
               <button
                 type="button"
@@ -128,7 +128,7 @@ function Dashboard() {
                 disabled={!isReviewer}
                 onClick={reviewComplainButtonClicked}
               >
-                Review Complain(s)
+                Review Complaint(s)
                 <i className={"ms-2 d-" + (isReviewer ? "none" : "inline")}>
                   <FontAwesomeIcon icon={faLock} />
                 </i>
@@ -139,7 +139,7 @@ function Dashboard() {
                 disabled={!isReviewer}
                 onClick={reviewedComplainButtonClicked}
               >
-                Reviewed Complain(s)
+                Reviewed Complaint(s)
                 <i className={"ms-2 d-" + (isReviewer ? "none" : "inline")}>
                   <FontAwesomeIcon icon={faLock} />
                 </i>
@@ -154,7 +154,7 @@ function Dashboard() {
                 {complainList.length != 0 ? (
                   complainList.map((e) => <ComplainRow complain={e} />)
                 ) : (
-                  <h1 class="pt-4 ">No Complain Lodged</h1>
+                  <h1 class="pt-4 ">No Complaint Lodged</h1>
                 )}
               </div>
               <div
@@ -168,7 +168,7 @@ function Dashboard() {
                     <ReviewComplainRow complain={e} />
                   ))
                 ) : (
-                  <h1 class="pt-4 ">No Complain to Review</h1>
+                  <h1 class="pt-4 ">No Complaint to Review</h1>
                 )}
               </div>
 
@@ -183,7 +183,7 @@ function Dashboard() {
                     <ReviewComplainRow complain={e} />
                   ))
                 ) : (
-                  <h1 class="pt-4 ">No Complain Reviewed</h1>
+                  <h1 class="pt-4 ">No Complaint Reviewed</h1>
                 )}
               </div>
             </div>

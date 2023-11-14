@@ -10,7 +10,7 @@ const path = require("path");
 router.post("/create-account", async (req, res) => {
   const result = await Users.findOne({
     where: {
-      [Op.or]: [{ email: req.body.email }, { nsuId: req.body.nsuId }],
+      [Op.or]: [{ email: req.body.email }, { duId: req.body.duId }],
     },
   });
   if (result === null) {
@@ -44,7 +44,7 @@ router.post("/create-account", async (req, res) => {
     const file = req.files.file;
     uploadPath = path.join(__dirname, "..");
     uploadPath +=
-      "/uploads/NSU IDs/" + req.body.nsuId + "." + file.name.split(".").pop();
+      "/uploads/DU IDs/" + req.body.duId + "." + file.name.split(".").pop();
     file.mv(uploadPath, function (err) {
       if (err) {
         return res.json({
@@ -58,15 +58,15 @@ router.post("/create-account", async (req, res) => {
     await Users.create({
       userUNID: UNID,
       fullName: req.body.fullName,
-      nsuId: req.body.nsuId,
-      uniqueDetail: req.body.fullName + " [" + req.body.nsuId + "]",
+      duId: req.body.duId,
+      uniqueDetail: req.body.fullName + " [" + req.body.duId + "]",
       email: req.body.email,
       actorType: actorType,
       accountType: Users.getAttributes().accountType.values[1],
       isVerified: 1,
       password: password,
       userType: req.body.userType,
-      nsuIdPhoto: req.body.nsuId + "." + file.name.split(".").pop(), //Just the name of the file which is there in our backend server
+      duIdPhoto: req.body.duId + "." + file.name.split(".").pop(), //Just the name of the file which is there in our backend server
     });
   } else {
     if (result.active == 0) {
@@ -92,7 +92,7 @@ router.post("/create-account", async (req, res) => {
     } else {
       res.json({
         data: "",
-        error: "NSU ID Already Used",
+        error: "DU ID Already Used",
       });
     }
   }

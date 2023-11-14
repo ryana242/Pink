@@ -15,7 +15,7 @@ function Login() {
   const clientId =
     "992655217366-qiu0iegl7kmotoovl1630k6283o0jsuk.apps.googleusercontent.com";
 
-  /*useEffect(() => {
+  useEffect(() => {
     async function fetchData() {
       if (token) {
         let response = await axios.post(
@@ -35,7 +35,7 @@ function Login() {
 
   if (token) {
     window.location.replace("http://localhost:3000");
-  }*/ // this was commented out last
+  }
 
   const validateEmail = () => {
     return (

@@ -14,7 +14,7 @@ function AdminViewAllCom() {
 
 const token = location.state;
   const [name, setName] = useState("");
-  const [nsuId, setNsuId] = useState("");
+  const [duId, setDuId] = useState("");
   const [email, setEmail] = useState("");
   const [designation, setDesignation] = useState("");
   const [complainList, setComplainList] = useState([]);
@@ -49,7 +49,7 @@ const token = location.state;
       let openComplain = [];
       let closeComplain = [];
       setName(response.data.data.fullName);
-      setNsuId(response.data.data.nsuId);
+      setDuId(response.data.data.duId);
       setEmail(response.data.data.email);
       setDesignation(response.data.data.userType);
       setComplainList(response.data.data.Complains);
@@ -96,7 +96,7 @@ const token = location.state;
                 ></img>
               </div>
               <h5 class="mt-3">Name: {name}</h5>
-              <h5 class="mt-3">NSU ID: {nsuId}</h5>
+              <h5 class="mt-3">DU ID: {duId}</h5>
               <h5 class="mt-3">Email: {email}</h5>
               <h5 class="mt-3">Designation: {designation}</h5>
               <div className="d-block mt-4">

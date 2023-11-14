@@ -52,12 +52,16 @@ li:hover {
 }
 
 .primary-background-color {
-  background-color: #340e21;
+  background-color: #ddbad6;
   /* background-image: url(/src/Assets/darkpinky.jpg); */
 }
 
 .background-color {
-  background-color: #000000;
+  background-color: #7d737d;
+  /* background-image: url(/src/Assets/grey3.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; */
 }
 
 input[type="file"] {
@@ -126,9 +130,12 @@ input[type="file"] {
 }
 
 .card-shadow {
-  box-shadow: 0 8px 16px 0 rgb(255, 255, 255), 0 12px 20px 0 rgb(255, 255, 255);
+  box-shadow: 0 8px 16px 0 rgb(19, 18, 18), 0 12px 20px 0 rgb(255, 255, 255);
 }
 .admin-button-color {
   background-color: #df44bb;
 }
 
+/* .button-color {
+  background-color: #000000;
+} */

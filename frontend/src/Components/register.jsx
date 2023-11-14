@@ -9,13 +9,13 @@ function Register() {
   let navigate = useNavigate();
   let ref = document.referrer;
   const [fullName, setFullName] = useState("");
-  const [nsuId, setNsuId] = useState("");
+  const [duId, setDuId] = useState("");
   const [email, setEmail] = useState("");
   const [designation, setDesignation] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [nameErrorClass, setNameErrorClass] = useState("none");
-  const [nsuIdErrorClass, setNsuIdErrorClass] = useState("none");
+  const [duIdErrorClass, setDuIdErrorClass] = useState("none");
   const [emailErrorClass, setEmailErrorClass] = useState("none");
   const [designationErrorClass, setDesignationErrorClass] = useState("none");
   const [passwordErrorClass, setPasswordErrorClass] = useState("none");
@@ -78,10 +78,10 @@ function Register() {
       return;
     }
 
-    if (nsuId.length != 10) {
-      setNsuIdErrorClass("block");
+    /*if (duId.length != 10) {
+      setDuIdErrorClass("block");
       return;
-    }
+    }*/
 
     if (!validateEmail()) {
       setEmailErrorClass("block");
@@ -109,7 +109,7 @@ function Register() {
 
     const formData = new FormData();
     formData.append("fullName", fullName);
-    formData.append("nsuId", nsuId);
+    formData.append("duId", duId);
     formData.append("email", email);
     formData.append("password", password);
     formData.append("userType", designation);
@@ -215,17 +215,17 @@ function Register() {
             <div class="form-group mb-4">
               <input
                 onInput={(e) => {
-                  setNsuId(e.target.value);
+                  setDuId(e.target.value);
                 }}
                 onChange={(e) => {
-                  setNsuIdErrorClass("none");
+                  setDuIdErrorClass("none");
                 }}
                 type="text"
                 class="form-control"
-                id="nsuIdInput"
+                id="duIdInput"
                 placeholder="Registration number"
               ></input>
-              <span class={"text-danger d-" + nsuIdErrorClass}>
+              <span class={"text-danger d-" + duIdErrorClass}>
                 Enter a valid Registration Number
               </span>
             </div>
@@ -415,7 +415,7 @@ function Register() {
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">
-                    Registration Successful!
+                    Registration Successful! You may log in now!
                   </h5>
                   <button
                     type="button"

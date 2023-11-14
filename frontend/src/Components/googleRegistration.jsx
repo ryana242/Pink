@@ -8,8 +8,8 @@ function GoogleRegistration(props) {
   const location = useLocation();
 
   const [fullName, setFullName] = useState("");
-  const [nsuId, setNsuId] = useState("");
-  const [nsuIdErrorClass, setNsuIdErrorClass] = useState("none");
+  const [duId, setDuId] = useState("");
+  const [duIdErrorClass, setDuIdErrorClass] = useState("none");
   const [email, setEmail] = useState("");
   const [designation, setDesignation] = useState("");
   const [designationErrorClass, setDesignationErrorClass] = useState("none");
@@ -18,7 +18,7 @@ function GoogleRegistration(props) {
   const [selectedFiles, setSelectedFiles] = useState({});
   const [isFilePicked, setIsFilePicked] = useState(false);
   const [idPhotoErrorClass, setIdPhotoErrorClass] = useState("none");
-  const [isNsuSignUp, setIsNsuSignUp] = useState(false);
+  const [isDuSignUp, setIsDuSignUp] = useState(false);
   const [Designations, setDesignations] = useState([
     { label: "Faculty", value: 1, isDisabled: true },
     { label: "Student", value: 2, isDisabled: true },
@@ -39,9 +39,9 @@ function GoogleRegistration(props) {
       console.log(location.state);
 
       /*if (location.state.email.includes("du.ac.bd")) {
-        setIsNsuSignUp(true);
+        setIsDuSignUp(true);
         setFullName(location.state.givenName);
-        setNsuId(location.state.familyName);
+        setDuId(location.state.familyName);
         setEmail(location.state.email);
         setDesignation("");
         setDesignations([
@@ -56,8 +56,8 @@ function GoogleRegistration(props) {
           { label: "Admin", value: 5, isDisabled: false },
         ]);
       } else {
-        setIsNsuSignUp(false);
-        setNsuId("");
+        setIsDuSignUp(false);
+        setDuId("");
         setFullName(location.state.name);
         setEmail(location.state.email);
         setDesignation("Helper");
@@ -74,7 +74,7 @@ function GoogleRegistration(props) {
         ]);
       }*/
       setFullName(location.state.name);
-      setNsuId("");
+      setDuId("");
       setEmail(location.state.email);
       setDesignations([
         { label: "Faculty", value: 1, isDisabled: false },
@@ -106,7 +106,7 @@ function GoogleRegistration(props) {
     const formData = new FormData();
     console.log(location.state.googleID);
     formData.append("fullName", fullName);
-    formData.append("Registration No.", nsuId);
+    formData.append("Registration No.", duId);
     formData.append("email", email);
     formData.append("googleID", location.state.googleID);
     formData.append("userType", designation);
@@ -171,20 +171,20 @@ function GoogleRegistration(props) {
             </div>
             <div class="form-group mb-4">
               <input
-                disabled={isNsuSignUp}
-                value={nsuId}
+                disabled={isDuSignUp}
+                value={duId}
                 onInput={(e) => {
-                  setNsuId(e.target.value);
+                  setDuId(e.target.value);
                 }}
                 onChange={(e) => {
-                  setNsuIdErrorClass("none");
+                  setDuIdErrorClass("none");
                 }}
                 type="text"
                 class="form-control"
-                id="nsuIdInput"
+                id="duIdInput"
                 placeholder="Registration No."
               ></input>
-              <span class={"text-danger d-" + nsuIdErrorClass}>
+              <span class={"text-danger d-" + duIdErrorClass}>
                 Enter a valid DU ID
               </span>
             </div>

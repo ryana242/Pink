@@ -79,7 +79,7 @@ router.post("/register/google", async (req, res) => {
       where: {
         [Op.or]: [
           { email: req.body.email }, 
-          { nsuId: req.body.nsuId}],
+          { duId: req.body.duId}],
       },
     });
     if (result === null) {
@@ -93,7 +93,7 @@ router.post("/register/google", async (req, res) => {
       const file = req.files.file;
       uploadPath = path.join(__dirname, "..");
       uploadPath +=
-        "/uploads/NSU IDs/" + req.body.nsuId + "." + file.name.split(".").pop();
+        "/uploads/DU IDs/" + req.body.duId + "." + file.name.split(".").pop();
       console.log("Upload path:" + uploadPath);
       file.mv(uploadPath, function (err) {
         if (err) {
@@ -108,14 +108,14 @@ router.post("/register/google", async (req, res) => {
       const user = await Users.create({
         userUNID: UNID,
         fullName: req.body.fullName,
-        nsuId: req.body.nsuId,
+        duId: req.body.duId,
         email: req.body.email,
-        uniqueDetail: req.body.fullName + " [" + req.body.nsuId + "]",
+        uniqueDetail: req.body.fullName + " [" + req.body.duId + "]",
         actorType: actorType,
         accountType: Users.getAttributes().accountType.values[0],
         userType: req.body.userType,
         isVerified: true,
-        nsuIdPhoto: req.body.nsuId + "." + file.name.split(".").pop(),
+        duIdPhoto: req.body.duId + "." + file.name.split(".").pop(),
       });
       res.json({
         data: user,
@@ -133,7 +133,7 @@ router.post("/register/google", async (req, res) => {
     } else {
       res.json({
         data: "",
-        error: "NSU ID Already Used",
+        error: "DU ID Already Used",
       });
     }
   } catch (error) {
@@ -151,7 +151,7 @@ router.post("/register", async (req, res) => {
     where: {
       [Op.or]: [
         { email: req.body.email }, 
-        { nsuId: req.body.nsuId}],
+        { duId: req.body.duId}],
     },
   });
   if (result === null) {
@@ -186,7 +186,7 @@ router.post("/register", async (req, res) => {
     const file = req.files.file;
     uploadPath = path.join(__dirname, "..");
     uploadPath +=
-      "/uploads/NSU IDs/" + req.body.nsuId + "." + file.name.split(".").pop();
+      "/uploads/DU IDs/" + req.body.duId + "." + file.name.split(".").pop();
     file.mv(uploadPath, function (err) {
       if (err) {
         return res.json({
@@ -200,14 +200,14 @@ router.post("/register", async (req, res) => {
     await Users.create({
       userUNID: UNID,
       fullName: req.body.fullName,
-      nsuId: req.body.nsuId,
-      uniqueDetail: req.body.fullName + " [" + req.body.nsuId + "]",
+      duId: req.body.duId,
+      uniqueDetail: req.body.fullName + " [" + req.body.duId + "]",
       email: req.body.email,
       actorType: actorType,
       accountType: Users.getAttributes().accountType.values[1],
       password: password,
       userType: req.body.userType,
-      nsuIdPhoto: req.body.nsuId + "." + file.name.split(".").pop(), //Just the name of the file which is there in our backend server
+      duIdPhoto: req.body.duId + "." + file.name.split(".").pop(), //Just the name of the file which is there in our backend server
     });
     const verificationToken = uuid.v4();
     await UserVerification.create({
@@ -236,7 +236,7 @@ router.post("/register", async (req, res) => {
     } else {
       res.json({
         data: "",
-        error: "NSU ID Already Used",
+        error: "DU ID Already Used",
       });
     }
   }
@@ -329,7 +329,7 @@ router.post("/login", async (req, res) => {
         error: "Please login using google SignIn",
       });
     } else if (await bcrypt.compare(req.body.password, result.password)) {
-      if (result.isVerified) {
+      if (true) {
         if (result.active) {
           //Can send user UNID only too
           return res.json({
@@ -503,8 +503,4 @@ router.post("/resend-link", async (req, res) => {
     mailSender(user.email, subject, text);
 });
 
-<<<<<<< HEAD
 module.exports = router;
-=======
-module.exports = router;
->>>>>>> 910e5e8c0450be1a2c8797f9213990183772ea0e

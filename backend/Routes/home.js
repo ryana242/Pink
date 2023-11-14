@@ -124,7 +124,7 @@ router.get("/complain-history", async (req, res) => {
 //Get entire details of a user along with complain lodged, complains to review
 router.get("/user-details", async (req, res) => {
   const result = await Users.findOne({
-    attributes: ["fullName", "email", "nsuId", "userType", "actorType"],
+    attributes: ["fullName", "email", "duId", "userType", "actorType"],
     where: {
       userUNID: req.query.userUNID,
     },
@@ -338,7 +338,7 @@ router.get("/complain-latest-details", async (req, res) => {
       },
       {
         model: Users,
-        attributes: ["fullName", "nsuId", "email", "userType"],
+        attributes: ["fullName", "duId", "email", "userType"],
       },
       {
         model: ComplainReviewer,
