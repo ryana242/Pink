@@ -52,8 +52,18 @@ li:hover {
 }
 
 .primary-background-color {
+<<<<<<< HEAD
   background-color: #ddbad6;
   /* background-image: url(/src/Assets/darkpinky.jpg); */
+=======
+  background-color: #f09ead;
+  /* background-image: url(/src/Assets/bgf.png); */
+  /* width: 450px;
+  height: 750px;
+  background-repeat: no-repeat; */
+
+  
+>>>>>>> b7d862ae15907ffcae9393f134188bae7425b94c
 }
 
 .background-color {
@@ -77,7 +87,7 @@ input[type="file"] {
 }
 .button-attach {
   display: inline-block;
-  background-color: #ee1d93;
+  background-color: #b32073;
   border-radius: 10px;
   border: 4px double #cccccc;
   color: #ffffff;
@@ -92,6 +102,7 @@ input[type="file"] {
 .button-attach:hover {
   opacity: 0.85;
 }
+
 
 .home-page-title-color {
   background-color: #ddbad6;
@@ -128,6 +139,7 @@ input[type="file"] {
   background-color: #000000;
   border-color: #000000;
 }
+
 
 .card-shadow {
   box-shadow: 0 8px 16px 0 rgb(19, 18, 18), 0 12px 20px 0 rgb(255, 255, 255);

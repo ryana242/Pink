@@ -504,3 +504,4 @@ router.post("/resend-link", async (req, res) => {
 });
 
 module.exports = router;
+>>>>>>> 910e5e8c0450be1a2c8797f9213990183772ea0e
